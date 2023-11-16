@@ -13,7 +13,7 @@ type Row struct {
 	Title   string
 }
 
-var Data []Row
+var Store []Row
 
 func CheckError(err error, message string) {
 	if err != nil {

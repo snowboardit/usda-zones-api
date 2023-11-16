@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/snowboardit/usda-zones-api/handlers"
+	"github.com/snowboardit/usda-zones-api/lib/data"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -29,6 +30,9 @@ func main() {
 	// Setup middleware
 	app.Use(recover.New())
 	app.Use(logger.New())
+
+	// Setup data
+	data.Store = data.Load()
 
 	// Create api group
 	api := app.Group("/api")
